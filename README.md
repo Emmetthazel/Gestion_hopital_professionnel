@@ -1,95 +1,71 @@
+# Hospital Management System 🏥
 
-# 🏥 Cahier des charges
+A C++ based hospital management system that handles various medical services and procedures.
 
-## 🎯 Projet : Système de gestion d’un hôpital
+## Features
 
-### 🎯 Objectif
+- Manage different types of medical services:
+  - Consultations
+  - Emergency care
+  - Surgeries
+  - Laboratory tests
+  - Radiology services
+- Add new medical services
+- Remove existing services
+- View detailed service information
 
-Développer un système de gestion en C++ qui permet de gérer les prestations offertes par un hôpital, notamment :
+## System Architecture
 
-- Consultation
-- Urgence
-- Chirurgie
-- Analyse biologique
-- Radiologie
+### Base Class: `Prestation`
+```cpp
+class Prestation {
+    string nom;          // Service name
+    string departement;  // Department
+    int code;           // Unique identifier
+};
+```
 
-Le système doit permettre :
+### Service Types
+1. **Consultation**
+   - Doctor name
+   - Specialty
 
-- l’ajout de prestations
-- la suppression d’une prestation
-- l’affichage des détails de toutes les prestations
+2. **Emergency**
+   - Emergency type
+   - Administered medications
 
----
+3. **Surgery**
+   - Surgeon name
+   - Operating room number
 
-## 🧱 Classes identifiées
+4. **Laboratory Test**
+   - Blood quantity
+   - Test type
 
-### 1. Classe `Prestation` (classe de base)
+5. **Radiology**
+   - Radiation dosage
+   - Scan type
 
-**Attributs communs :**
+### Hospital Management
+The `Hopital` class manages all services with methods for:
+- Adding services
+- Removing services
+- Displaying service information
 
-- `std::string nom` : nom de la prestation
-- `std::string departement` : département concerné
-- `int code` : code unique de la prestation
+## Implementation
 
-**Méthodes :**
+The main program demonstrates:
+1. Hospital instance creation
+2. Adding various medical services
+3. Service removal by ID
+4. Complete service listing
 
-- Constructeur de base
-- Méthodes virtuelles pour affichage (`virtual void afficher() const;`)
-- Getters / Setters de base
+## Getting Started
 
----
+1. Clone the repository
+2. Compile the C++ source files
+3. Run the executable
 
-### 2. Classes dérivées de `Prestation`
-
-#### a. `PrestationConsultation`
-
-- `std::string nomMedecin`
-- `std::string specialite`
-
-#### b. `PrestationUrgence`
-
-- `std::string typeUrgence`
-- `std::vector<std::string> medicamentsInjectes`
-
-#### c. `PrestationChirurgie`
-
-- `std::string nomChirurgien`
-- `int numeroSalle`
-
-#### d. `PrestationAnalyse`
-
-- `float quantiteSang`
-- `std::string typeAnalyse`
-
-#### e. `PrestationRadio`
-
-- `float dosageRadiation`
-- `std::string typeRadio`
-
----
-
-### 3. Classe `Hopital`
-
-**Attributs :**
-
-- `std::vector<Prestation*> prestations;`
-
-**Méthodes :**
-
-- `void ajouterPrestation(Prestation* prestation);`
-- `void supprimerPrestation(int code);`
-- `void afficherPrestations() const;`
-- Destructeur pour libérer la mémoire
-
----
-
-## 🔧 Travail demandé dans `main()`
-
-1. Créer un objet `Hopital`
-2. Ajouter plusieurs prestations (tous types confondus)
-3. Supprimer une prestation par son code
-4. Afficher toutes les prestations existantes
-
----
-
-Souhaites-tu que je t’aide maintenant à créer les fichiers `.h` / `.cpp` correspondants pour ce projet ?
+## Requirements
+- C++ compiler with C++11 support
+- Standard Template Library (STL)
